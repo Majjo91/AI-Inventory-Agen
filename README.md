@@ -122,6 +122,11 @@ Type natural-language commands at the prompt. Type `exit` or `quit` to close.
 streamlit run src/web_app.py
 ```
 
+Or run in headless mode without auto-opening a browser:
+```bash
+streamlit run src/web_app.py --server.headless true
+```
+
 This starts the Streamlit web interface locally. The dashboard will open in your browser (usually at `http://localhost:8501`).
 
 From the web dashboard you can:
