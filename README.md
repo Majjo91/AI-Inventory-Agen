@@ -122,7 +122,8 @@ Type natural-language commands at the prompt. Type `exit` or `quit` to close.
 streamlit run src/web_app.py
 ```
 
-Or run in headless mode without auto-opening a browser:
+#Or run in headless mode without auto-opening a browser:
+
 ```bash
 streamlit run src/web_app.py --server.headless true
 ```
