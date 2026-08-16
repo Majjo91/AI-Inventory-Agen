@@ -50,6 +50,8 @@ AI-Inventory-Agent/
 ├── src/
 │   ├── __init__.py
 │   ├── main.py                    # CLI entry point
+│   ├── web_app.py                 # Streamlit web dashboard
+│   ├── web_backend.py             # Web backend wrapper
 │   ├── database/
 │   │   ├── __init__.py
 │   │   ├── connection.py          # SQLite connection factory
@@ -82,9 +84,7 @@ python -m venv .venv
 .venv\Scripts\activate
 
 # Install dependencies
-# No third-party packages are required for Version 0 beyond the Python standard library.
-# The only external dependency is `requests` for Ollama communication.
-pip install requests
+pip install -r requirements.txt
 ```
 
 ### 2. Ollama
@@ -102,6 +102,7 @@ curl http://localhost:11434/api/generate -d "{\"model\":\"qwen2.5:7b-instruct\",
 
 ## How to Run
 
+### CLI
 ```bash
 python src/main.py
 ```
@@ -115,6 +116,19 @@ Type 'exit' or 'quit' to leave.
 ```
 
 Type natural-language commands at the prompt. Type `exit` or `quit` to close.
+
+### Web Dashboard
+```bash
+streamlit run src/web_app.py
+```
+
+This starts the Streamlit web interface locally. The dashboard will open in your browser (usually at `http://localhost:8501`).
+
+From the web dashboard you can:
+- Open the **Dashboard** page and type natural-language inventory commands in the AI Command box.
+- View **Inventory** to see all products and stock levels.
+- View **Transactions** to see the audit log of stock movements.
+- Confirm or cancel ADD / REMOVE actions before they are applied.
 
 ## How to Run Tests
 
@@ -168,7 +182,6 @@ Goodbye!
 - No user authentication or multi-shop support
 - No barcode scanning or image recognition
 - No advanced reporting or analytics
-- No web interface or mobile app
 - Ollama must be running locally with the model pulled
 - First inference may be slow due to model loading into memory
 - No n8n workflow orchestration (planned for future versions)
