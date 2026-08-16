@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CP02 Inventory Decision",
+  "type": "object",
+  "required": [
+    "action",
+    "product",
+    "quantity"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "ADD",
+        "REMOVE",
+        "CHECK",
+        "LIST",
+        "UNKNOWN"
+      ]
+    },
+    "product": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false
+}}
